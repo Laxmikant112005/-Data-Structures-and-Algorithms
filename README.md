@@ -4,11 +4,15 @@ Data Structures and Algorithms (DSA) is a core concept in computer science used 
 
 Data Structures help store and manage data
 
-Example arrays, linked lists, stacks, queues, trees, graphs.
+Example 
+
+    arrays, linked lists, stacks, queues, trees, graphs.
 
 Algorithms are step-by-step procedures to solve problems
 
-Example sorting, searching.
+Example 
+     
+     sorting, searching.
 
 Why DSA is Important?
 
@@ -18,39 +22,51 @@ Helps write optimized and efficient code
 
 Essential for coding interviews and competitive programming
 
-Fibonacci Sequence in Python 🐍
+
+
+# Fibonacci Sequence in Python 🐍
 
 This project demonstrates different ways to generate the Fibonacci sequence in Python.
 
 The Fibonacci sequence:
 
+```
 0, 1, 1, 2, 3, 5, 8, 13, 21, ...
+```
 
 Each number is the sum of the two previous numbers.
 
-Methods Implemented
+---
 
-1️⃣ Using Loop (List)
+## Methods Implemented
 
-Builds the sequence using a for loop.
-Time: O(n)
-Space: O(n)
+### 1️⃣ Using Loop (List)
 
-2️⃣ Using Recursion
+* Builds the sequence using a `for` loop.
+* **Time:** O(n)
+* **Space:** O(n)
 
-Uses formula: F(n) = F(n-1) + F(n-2)
-Time: O(2ⁿ) (slow for large n)
-Space: O(n)
+---
 
-3️⃣ Using Dynamic Programming (Memoization)
+### 2️⃣ Using Recursion
 
-Stores previously calculated values.
-Time: O(n)
-Space: O(n)
+* Uses formula: `F(n) = F(n-1) + F(n-2)`
+* **Time:** O(2ⁿ) (slow for large n)
+* **Space:** O(n)
 
-4️⃣ Iterative (Constant Space) ✅
+---
 
-Uses two variables instead of a list.
-Time: O(n)
-Space: O(1)
-Most efficient method Happy Coding 🚀
+### 3️⃣ Using Dynamic Programming (Memoization)
+
+* Stores previously calculated values.
+* **Time:** O(n)
+* **Space:** O(n)
+
+---
+
+### 4️⃣ Iterative (Constant Space) ✅
+
+* Uses two variables instead of a list.
+* **Time:** O(n)
+* **Space:** O(1)
+* **Most efficient method**
