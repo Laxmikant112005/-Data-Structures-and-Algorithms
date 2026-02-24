@@ -85,13 +85,17 @@ Compares each element to track the maximum value
 
 Time Complexity: O(n)
 
-2️⃣ Finding the Missing Number (Gap Method)
+---
+
+### 2️⃣ Finding the Missing Number (Gap Method)
 
 Detects missing number by checking difference between consecutive elements
 
 Demonstrates analytical reasoning
 
-3️⃣ Finding the Missing Number (XOR Method)
+---
+
+### 3️⃣ Finding the Missing Number (XOR Method)
 
 Uses bitwise XOR operation
 
@@ -101,7 +105,9 @@ Time Complexity: O(n)
 
 Space Complexity: O(1)
 
-4️⃣ Removing Duplicates (Without Using Set)
+---
+
+### 4️⃣ Removing Duplicates (Without Using Set)
 
 Preserves original order
 
@@ -109,7 +115,9 @@ Avoids built-in set function
 
 Time Complexity: O(n²) (due to membership checking)
 
-5️⃣ Finding the Majority Element
+---
+
+### 5️⃣ Finding the Majority Element
 
 Implements Boyer-Moore Voting Algorithm
 
@@ -119,11 +127,15 @@ Time Complexity: O(n)
 
 Space Complexity: O(1)
 
-6️⃣ Rotating an Array by K Positions
+---
+
+### 6️⃣ Rotating an Array by K Positions
 
 Rotates elements to the right
 
 Handles large values of k using modulo operation
 
 Time Complexity: O(n)
+
+---
 
