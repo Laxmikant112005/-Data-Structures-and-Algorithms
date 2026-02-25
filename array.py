@@ -91,3 +91,48 @@ for i in range(0, n - k):
     res.append(nums[i])
 
 print(res)
+
+# Finding the maximum profit from stock prices
+
+def max_profit(prices):
+    min_price = float('inf') 
+    max_profit = 0
+    
+    for price in prices:
+       
+        if price < min_price:
+            min_price = price
+        
+        elif price - min_price > max_profit:
+            max_profit = price - min_price
+            
+    return max_profit
+
+print(f"Max Profit: {max_profit([7, 1, 5, 3, 6, 4])}") 
+
+# Grouping anagrams together
+
+from collections import defaultdict
+
+def group_anagrams(strs):
+    groups = defaultdict(list)
+    
+    for word in strs:
+        sorted_key = "".join(sorted(word))
+        groups[sorted_key].append(word)
+    
+    return list(groups.values())
+
+words = ["eat", "tea", "tan", "ate", "nat", "bat"]
+print(f"Grouped Anagrams: {group_anagrams(words)}")
+
+
+# Finding the missing number in an array
+
+def find_missing_number(nums):
+    n = len(nums)
+    expected_sum = n * (n + 1) // 2
+    actual_sum = sum(nums)
+    
+    return expected_sum - actual_sum
+print(f"Missing Number: {find_missing_number([3, 0, 1])}") 
