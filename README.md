@@ -139,3 +139,33 @@ Time Complexity: O(n)
 
 ---
 
+# Python Analytical Problem Solving 🐍
+
+This repository contains optimized Python solutions for classic analytical and algorithmic problems. Each solution is designed with a focus on **Time Complexity ($O$ notation)** and efficient use of Python's built-in data structures.
+
+---
+
+## 🚀 Problems & Solutions
+
+### 1. Stock Whisperer (Array Analysis)
+**Problem:** Find the maximum profit possible by buying a stock on one day and selling it on a future day.
+* **Logic:** Instead of nested loops, we use a **Single Pass** approach. We track the `min_price` seen so far and calculate the potential profit at every step.
+* **Time Complexity:** $O(n)$
+* **Space Complexity:** $O(1)$
+
+### 2. Anagram Grouper (Hash Maps)
+**Problem:** Group a list of strings into sub-lists where each sub-list contains words that are anagrams of each other.
+* **Logic:** Uses a `dictionary` (Hash Map) where the **sorted version** of the word acts as the key (e.g., "eat" and "tea" both become "aet").
+* **Time Complexity:** $O(n \cdot k \log k)$ (where $k$ is the length of the longest word).
+* **Space Complexity:** $O(n \cdot k)$
+
+
+
+### 3. The Missing Link (Mathematical Logic)
+**Problem:** Given an array containing $n$ distinct numbers in the range $[0, n]$, find the one number that is missing.
+* **Logic:** Uses **Gauss's Summation Formula**. By calculating what the sum *should* be and subtracting the *actual* sum, the remainder is our missing value.
+* **Formula:** $$\sum_{i=0}^{n} i = \frac{n(n+1)}{2}$$
+* **Time Complexity:** $O(n)$
+* **Space Complexity:** $O(1)$
+
+---
