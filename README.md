@@ -169,3 +169,21 @@ This repository contains optimized Python solutions for classic analytical and a
 * **Space Complexity:** $O(1)$
 
 ---
+
+## 📊 Customer Behavior Analytics (OOP)
+**Goal:** Transform raw transaction logs into actionable business intelligence using RFM (Recency, Frequency, Monetary) analysis.
+
+### Key Features:
+* **Data Ingestion:** Parses string-based dates and amounts into Python `datetime` objects.
+* **RFM Logic:** Implements a custom scoring algorithm to rank customers based on loyalty and spending.
+* **Churn Detection:** Automatically flags customers as "At Risk" if their recency exceeds 30 days.
+
+
+
+[Image of RFM analysis model diagram]
+
+
+### Technical Highlights:
+* **OOP Design:** Encapsulates logic within a `RetailAnalytics` class for reusability.
+* **Sorting & Lambda:** Uses complex sorting to rank data by calculated scores.
+* **Time Complexity:** $O(N)$ for data ingestion and $O(M \log M)$ for reporting (where $M$ is the number of unique customers).
