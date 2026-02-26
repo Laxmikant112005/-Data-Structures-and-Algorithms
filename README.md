@@ -178,12 +178,27 @@ This repository contains optimized Python solutions for classic analytical and a
 * **RFM Logic:** Implements a custom scoring algorithm to rank customers based on loyalty and spending.
 * **Churn Detection:** Automatically flags customers as "At Risk" if their recency exceeds 30 days.
 
-
-
 [Image of RFM analysis model diagram]
-
 
 ### Technical Highlights:
 * **OOP Design:** Encapsulates logic within a `RetailAnalytics` class for reusability.
 * **Sorting & Lambda:** Uses complex sorting to rank data by calculated scores.
 * **Time Complexity:** $O(N)$ for data ingestion and $O(M \log M)$ for reporting (where $M$ is the number of unique customers).
+
+
+
+
+### ⚡ Concise Quick Sort (Functional Approach)
+A compact implementation of the Quick Sort algorithm using Python's list comprehensions and recursion.
+
+**The Logic:**
+1. **Base Case:** If the list is empty, return `[]`.
+2. **Pivot:** The first element (`a[0]`) is chosen as the pivot.
+3. **Partition:** - `left`: Elements $\le$ pivot.
+   - `right`: Elements $>$ pivot.
+4. **Combine:** Recursively sort both sides and join them with the pivot in the middle.
+
+
+
+**Analytical Trade-off:**
+While this version is extremely readable and short, it uses $O(n)$ extra space per recursion level due to list creation. For large-scale data, an **in-place** version is preferred to optimize memory.
