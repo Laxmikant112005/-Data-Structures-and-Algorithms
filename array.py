@@ -110,6 +110,31 @@ def max_profit(prices):
 
 print(f"Max Profit: {max_profit([7, 1, 5, 3, 6, 4])}") 
 
+
+# one more basic way to solve maximum profit from stock prices problem 
+
+a = [ 12 , 13 , 11, 40 , 1, 2, 5, 20, 5 , 6]
+n = len(a)
+i = 0
+j = n-1
+
+while (j > i):
+    if a[i] > a[i + 1]:
+        max = a[i + 1]
+        i += 1
+    else:
+        i += 1
+    if a[j] < a[j - 1]:
+        may = a[j - 1]
+        j -= 1
+    else:
+        j -= 1
+
+print(f"buy the shares at {max}")
+print(f"sell the shares at {may}")
+print(f"profit = {may - max}")
+
+
 # Grouping anagrams together
 
 from collections import defaultdict
@@ -136,3 +161,4 @@ def find_missing_number(nums):
     
     return expected_sum - actual_sum
 print(f"Missing Number: {find_missing_number([3, 0, 1])}") 
+
