@@ -126,3 +126,19 @@ plt.title("Scatter Plot")
 plt.xlabel("X values")
 plt.ylabel("Y values")
 plt.show()
+
+# This program creates a line graph with multiple lines using the matplotlib library.
+# It defines three arrays: x, y1, and y2. The x array contains the x-coordinates (1, 2, 3, 4), while y1 and y2 contain the corresponding y-coordinates for two different lines. 
+# The plt.plot() function is used to create the line graph for both sets of data, and a legend is added to differentiate between the two lines. Finally, the graph is displayed using plt.show().
+
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y1 = [10, 20, 15, 25]
+y2 = [30, 25, 20, 15]
+
+plt.plot(x, y1, label="Line 1")
+plt.plot(x, y2, label="Line 2")
+plt.legend()
+plt.title("Multiple Lines")
+plt.show()
