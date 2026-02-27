@@ -79,3 +79,20 @@ def user(bmi=0):
     print("hello !")
     BMICal(a,b)
     
+
+# This program demonstrates how to plot a simple graph using two arrays of data. 
+# It uses the matplotlib library to create a line graph of the x and y values, and includes labels for the axes and a title for the graph. 
+# The graph is displayed using the plt.show() function.
+
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [10, 20, 15, 25, 30]
+
+plt.plot(x, y)
+
+plt.xlabel("X Values")
+plt.ylabel("Y Values")
+plt.title("Simple Graph of Two Arrays")
+
+plt.show()
