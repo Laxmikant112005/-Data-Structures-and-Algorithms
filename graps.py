@@ -96,3 +96,16 @@ plt.ylabel("Y Values")
 plt.title("Simple Graph of Two Arrays")
 
 plt.show()
+
+# This program creates a bar chart using the matplotlib library. It defines two arrays, x and y, where x contains the categories (A, B, C, D) and y contains the corresponding values (10, 25, 15, 20). The plt.bar() function is used to create the bar chart, and labels for the axes and a title are added for clarity. Finally, the graph is displayed using plt.show().
+
+import matplotlib.pyplot as plt
+
+x = ["A", "B", "C", "D"]
+y = [10, 25, 15, 20]
+
+plt.bar(x, y)
+plt.title("Bar Chart")
+plt.xlabel("Categories")
+plt.ylabel("Values")
+plt.show()
