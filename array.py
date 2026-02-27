@@ -163,31 +163,44 @@ def find_missing_number(nums):
 print(f"Missing Number: {find_missing_number([3, 0, 1])}") 
 
 
+---------------------------------------------------------------------
+
 # sorting concepts **************** 
+
+---------------------------------------------------------------------
 
 # quick sort algorithm 
 
-def partition(array, low, high):
-    pivot = array[high]
-    i = low - 1
+def partition( arr, lb, ub ):
+    piot = arr[lb]
+    start = lb
+    end = ub
+    while(end > start ):
+        while( arr[start] <= piot ):
+            start += 1
+            
+        while( arr[end] > piot ):
+            end -= 1
+            
+        if end > start :
+            temp = arr[start]
+            arr[start]=arr[end]
+            arr[end] = temp
+    
+    temp = arr[lb]
+    arr[lb] = arr[end]
+    arr[end] = temp
+    return end 
 
-    for j in range(low, high):
-        if array[j] <= pivot:
-            i += 1
-            array[i], array[j] = array[j], array[i]
+def quick_sort( arr, lb, ub ):
+    if lb < ub:
+        loc = partition( arr, lb, ub )
+        quick_sort( arr, lb, loc - 1)
+        quick_sort( arr, loc + 1, ub )
 
-    array[i+1], array[high] = array[high], array[i+1]
-    return i+1
+arr = [ 20, 1, 30, 2, 5, 10, 15 ]
+quick_sort(arr, 0, len(arr) - 1 )
 
-def quicksort(array, low=0, high=None):
-    if high is None:
-        high = len(array) - 1
+print(" Sorted array is : ", arr )
 
-    if low < high:
-        pivot_index = partition(array, low, high)
-        quicksort(array, low, pivot_index-1)
-        quicksort(array, pivot_index+1, high)
 
-my_array = [64, 34, 25, 12, 22, 11, 90, 5]
-quicksort(my_array)
-print("Sorted array:", my_array)
