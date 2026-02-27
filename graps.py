@@ -97,7 +97,9 @@ plt.title("Simple Graph of Two Arrays")
 
 plt.show()
 
-# This program creates a bar chart using the matplotlib library. It defines two arrays, x and y, where x contains the categories (A, B, C, D) and y contains the corresponding values (10, 25, 15, 20). The plt.bar() function is used to create the bar chart, and labels for the axes and a title are added for clarity. Finally, the graph is displayed using plt.show().
+# This program creates a bar chart using the matplotlib library. 
+# It defines two arrays, x and y, where x contains the categories (A, B, C, D) and y contains the corresponding values (10, 25, 15, 20). 
+# The plt.bar() function is used to create the bar chart, and labels for the axes and a title are added for clarity. Finally, the graph is displayed using plt.show().
 
 import matplotlib.pyplot as plt
 
@@ -108,4 +110,19 @@ plt.bar(x, y)
 plt.title("Bar Chart")
 plt.xlabel("Categories")
 plt.ylabel("Values")
+plt.show()
+
+# This program creates a scatter plot using the matplotlib library. 
+# It defines two arrays, x and y, where x contains the x-coordinates (5, 7, 8, 10, 12, 15) and y contains the corresponding y-coordinates (12, 14, 18, 20, 22, 30).
+# The plt.scatter() function is used to create the scatter plot, and labels for the axes and a title are added for clarity. Finally, the graph is displayed using plt.show().
+
+import matplotlib.pyplot as plt
+
+x = [5, 7, 8, 10, 12, 15]
+y = [12, 14, 18, 20, 22, 30]
+
+plt.scatter(x, y)
+plt.title("Scatter Plot")
+plt.xlabel("X values")
+plt.ylabel("Y values")
 plt.show()
