@@ -169,6 +169,19 @@ print(f"Missing Number: {find_missing_number([3, 0, 1])}")
 
 ---------------------------------------------------------------------
 
+# bubble sort 
+
+arr = [ 20, 10, 5, 40, 100, 77, 50 ]
+len = len(arr) 
+
+for i in range(len):
+    for j in range(len - 1 ):
+
+        if arr[j] > arr[j+1]:
+            arr[j], arr[j+1] = arr[j+1], arr[j]
+            
+print(arr)
+
 # quick sort algorithm 
 
 def partition( arr, lb, ub ):
@@ -202,5 +215,6 @@ arr = [ 20, 1, 30, 2, 5, 10, 15 ]
 quick_sort(arr, 0, len(arr) - 1 )
 
 print(" Sorted array is : ", arr )
+
 
 
