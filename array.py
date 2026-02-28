@@ -216,5 +216,19 @@ quick_sort(arr, 0, len(arr) - 1 )
 
 print(" Sorted array is : ", arr )
 
+# selection sort 
 
+arr = [99, 40, 10, 25, 77, 100]
+n = len(arr)
+
+for i in range(n):
+    min_index = i
+    for j in range(i + 1, n):
+        if arr[j] < arr[min_index]:
+            min_index = j
+
+    # Swap only once
+    arr[i], arr[min_index] = arr[min_index], arr[i]
+
+print("Final Sorted Array:", arr)
 
