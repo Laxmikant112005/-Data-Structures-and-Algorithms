@@ -232,3 +232,18 @@ for i in range(n):
 
 print("Final Sorted Array:", arr)
 
+# linear search 
+
+def linear_search(arr, key):
+    for i in range(len(arr)):
+        if arr[i] == key:
+            return i
+    return -1
+
+test_arr = [99, 40, 10, 25, 77, 100]
+key_to_find = 77
+result = linear_search(test_arr, key_to_find)
+if result != -1:
+    print(f"Element {key_to_find} found at index {result}")
+else:
+    print(f"Element {key_to_find} not found in the array")
