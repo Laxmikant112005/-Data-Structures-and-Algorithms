@@ -232,6 +232,10 @@ for i in range(n):
 
 print("Final Sorted Array:", arr)
 
+#insertion sort 
+
+
+
 # linear search 
 
 def linear_search(arr, key):
@@ -243,6 +247,33 @@ def linear_search(arr, key):
 test_arr = [99, 40, 10, 25, 77, 100]
 key_to_find = 77
 result = linear_search(test_arr, key_to_find)
+if result != -1:
+    print(f"Element {key_to_find} found at index {result}")
+else:
+    print(f"Element {key_to_find} not found in the array")
+
+
+# binary search 
+
+def binary_search(arr, key):
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == key:
+            return mid
+        elif arr[mid] < key:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1
+
+test_arr = [10, 25, 40, 77, 99, 100] # must be sorted
+key_to_find = 77
+result = binary_search(test_arr, key_to_find)
 if result != -1:
     print(f"Element {key_to_find} found at index {result}")
 else:
