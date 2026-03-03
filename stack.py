@@ -54,97 +54,8 @@ while True:
         case _:
             print("Invalid choice!")
 
-# output *******************************
 
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. Exit
-# Enter your choice:  1
-# Enter item to insert:  20
-# Inserted 20 into stack
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. Exit
-# Enter your choice:  30
-# Invalid choice!
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. Exit
-# Enter your choice:  1
-# Enter item to insert:  30
-# Inserted 30 into stack
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. Exit
-# Enter your choice:  1
-# Enter item to insert:  40
-# Inserted 40 into stack
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. Exit
-# Enter your choice:  3
-# Stack elements: [20, 30, 40]
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. Exit
-# Enter your choice:  1
-# Enter item to insert:  50
-# Inserted 50 into stack
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. Exit
-# Enter your choice:  1
-# Enter item to insert:  45
-# Inserted 45 into stack
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. Exit
-# Enter your choice:  3
-# Stack elements: [20, 30, 40, 50, 45]
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. Exit
-# Enter your choice:  2
-# Element 45 deleted successfully
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. Exit
-# Enter your choice:  3
-# Stack elements: [20, 30, 40, 50]
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. Exit
-# Enter your choice:  3
-# Stack elements: [20, 30, 40, 50]
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. Exit
-# Enter your choice:  4
-# Exiting program...
-
+# serching element in stack
 
 def search(stack, item, lb):
     i = 0
@@ -171,7 +82,28 @@ else:
 # Element 20 found at index 0
 
 
-# Stack implementation in Python includes basic operations such as insertion, deletion, display, search and top element.
+# Count the number of occurrences of an element in a stack
+def count(stack, val, i, lb):
+    count = 0
+    while(i <= lb):
+        if stack[i] == val:
+            count += 1
+            i += 1
+        else:
+            i += 1
+    return count
+
+stack = [ 20, 20, 20, 30, 20, 50, 30, 40, 30 ]
+val = int(input("Enter the value "))
+count = count(stack, val, 0, len(stack) - 1)
+print(count)
+
+#Out put *******************************************
+# Enter the value  20
+# value 20 occured 4 times
+
+
+# Stack implementation in Python includes basic operations such as insertion, deletion, display, search, top element and occurrence of an element in a stack.
 
 def insert(stack, item, top, max_size):
     if top == max_size - 1:
@@ -192,6 +124,7 @@ def deletion(stack, top):
         top -= 1
     return stack, top
 
+
 def search(stack, item, lb):
     i = 0
     while i <= lb:
@@ -199,6 +132,16 @@ def search(stack, item, lb):
             return i
         i += 1
     return -1  
+
+
+def count_occurrence(stack, val, i, lb):
+    cnt = 0
+    while i <= lb:
+        if stack[i] == val:
+            cnt += 1
+        i += 1
+    return cnt
+
 
 # Main Program
 stack = []
@@ -209,9 +152,10 @@ while True:
     print("\n1. Insert")
     print("2. Delete")
     print("3. Display")
-    print("4. search")
+    print("4. Search")
     print("5. Top element")
-    print("6. exit...")
+    print("6. No. occurrence")
+    print("7. Exit")
 
     ch = int(input("Enter your choice: "))
 
@@ -231,55 +175,47 @@ while True:
 
         case 4:
             item = int(input("Enter item to search: "))
-            lb = len(stack) - 1 
-            result = search(stack, item, lb)  
+            lb = len(stack) - 1
+            result = search(stack, item, lb)
             if result != -1:
                 print(f"Element {item} found at index {result}")
             else:
                 print(f"Element {item} not found in stack")
-                
+
         case 5:
-            top_item = stack[top] 
-            print(f"Top element is: {top_item}")
-            print(f"Length of the stack is: {len(stack)}")
-            print(f"Length of the stack is: {lb + 1}")
-            
+            if top == -1:
+                print("Stack is empty")
+            else:
+                top_item = stack[top]
+                print(f"Top element is: {top_item}")
+                print(f"Length of the stack is: {len(stack)}")
+
         case 6:
+            if top == -1:
+                print("Stack is empty")
+            else:
+                val = int(input("Enter the value: "))
+                result = count_occurrence(stack, val, 0, len(stack) - 1)
+                print(f"{val} occurs {result} times")
+
+        case 7:
             print("Exiting program...")
             break
 
         case _:
             print("Invalid choice!")
 
-# output *******************************
 
-# 
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. search
-# 5. Top element
-# 6. exit...
-# Enter your choice:  1
-# Enter item to insert:  30
-# Inserted 30 into stack
+# Out put ******************************
+
 
 # 1. Insert
 # 2. Delete
 # 3. Display
-# 4. search
+# 4. Search
 # 5. Top element
-# 6. exit...
-# Enter your choice:  1
-# Enter item to insert:  50
-# Inserted 50 into stack
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. search
-# 5. Top element
-# 6. exit...
+# 6. No. occurrence
+# 7. Exit
 # Enter your choice:  1
 # Enter item to insert:  20
 # Inserted 20 into stack
@@ -287,107 +223,192 @@ while True:
 # 1. Insert
 # 2. Delete
 # 3. Display
-# 4. search
+# 4. Search
 # 5. Top element
-# 6. exit...
-# Enter your choice:  1
-# Enter item to insert:  70
-# Inserted 70 into stack
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. search
-# 5. Top element
-# 6. exit...
+# 6. No. occurrence
+# 7. Exit
 # Enter your choice:  3
-# Stack elements: [30, 50, 20, 70]
+# Stack elements: [20]
 
 # 1. Insert
 # 2. Delete
 # 3. Display
-# 4. search
+# 4. Search
 # 5. Top element
-# 6. exit...
-# Enter your choice:  1
-# Enter item to insert:  90
-# Inserted 90 into stack
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. search
-# 5. Top element
-# 6. exit...
-# Enter your choice:  3
-# Stack elements: [30, 50, 20, 70, 90]
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. search
-# 5. Top element
-# 6. exit...
-# Enter your choice:  5
-# Top element is: 90
-# Length of the stack is: 5
-# Length of the stack is: 4
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. search
-# 5. Top element
-# 6. exit...
-# Enter your choice:  2
-# Element 90 deleted successfully
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. search
-# 5. Top element
-# 6. exit...
-# Enter your choice:  5
-# Top element is: 70
-# Length of the stack is: 4
-# Length of the stack is: 4
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. search
-# 5. Top element
-# 6. exit...
-# Enter your choice:  3
-# Stack elements: [30, 50, 20, 70]
-
-# 1. Insert
-# 2. Delete
-# 3. Display
-# 4. search
-# 5. Top element
-# 6. exit...
+# 6. No. occurrence
+# 7. Exit
 # Enter your choice:  6
+# Enter the value:  10
+# 10 occurs 0 times
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  1
+# Enter item to insert:  40
+# Inserted 40 into stack
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  6
+# Enter the value:  10
+# 10 occurs 0 times
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  1
+# Enter item to insert:  10
+# Inserted 10 into stack
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  3
+# Stack elements: [20, 40, 10]
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  5
+# Top element is: 10
+# Length of the stack is: 3
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  4
+# Enter item to search:  10
+# Element 10 found at index 2
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  6
+# Enter the value:  20
+# 20 occurs 1 times
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  1
+# Enter item to insert:  20
+# Inserted 20 into stack
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  6
+# Enter the value:  20
+# 20 occurs 2 times
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  3
+# Stack elements: [20, 40, 10, 20]
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  1
+# Enter item to insert:  50
+# Inserted 50 into stack
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  5
+# Top element is: 50
+# Length of the stack is: 5
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  4
+# Enter item to search:  50
+# Element 50 found at index 4
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  2
+# Element 50 deleted successfully
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  3
+# Stack elements: [20, 40, 10, 20]
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Search
+# 5. Top element
+# 6. No. occurrence
+# 7. Exit
+# Enter your choice:  7
 # Exiting program...
-
-
-# Count the number of occurrences of an element in a stack
-def count(stack, val, i, lb):
-    count = 0
-    while(i <= lb):
-        if stack[i] == val:
-            count += 1
-            i += 1
-        else:
-            i += 1
-    return count
-
-stack = [ 20, 20, 20, 30, 20, 50, 30, 40, 30 ]
-val = int(input("Enter the value "))
-count = count(stack, val, 0, len(stack) - 1)
-print(count)
-
-#Enter the value  30
-#3
 
