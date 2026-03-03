@@ -370,3 +370,24 @@ while True:
 # 6. exit...
 # Enter your choice:  6
 # Exiting program...
+
+
+# Count the number of occurrences of an element in a stack
+def count(stack, val, i, lb):
+    count = 0
+    while(i <= lb):
+        if stack[i] == val:
+            count += 1
+            i += 1
+        else:
+            i += 1
+    return count
+
+stack = [ 20, 20, 20, 30, 20, 50, 30, 40, 30 ]
+val = int(input("Enter the value "))
+count = count(stack, val, 0, len(stack) - 1)
+print(count)
+
+#Enter the value  30
+#3
+
