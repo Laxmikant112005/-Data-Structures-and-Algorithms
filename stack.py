@@ -142,3 +142,30 @@ while True:
 # 4. Exit
 # Enter your choice:  4
 # Exiting program...
+
+
+def search(stack, item, lb):
+    i = 0
+    while i <= lb:
+        if stack[i] == item:
+            return i
+        i += 1
+    return -1   # Not found
+
+
+stack = [20, 10, 50, 30, 20, 25, 5, 77, 69, 22, 47]
+item = int(input("Enter item to search: "))
+lb = len(stack) - 1 
+
+result = search(stack, item, lb)
+
+if result != -1:
+    print(f"Element {item} found at index {result}")
+else:
+    print(f"Element {item} not found in stack")
+
+# output : *************
+# Enter item to search:  20
+# Element 20 found at index 0
+
+
