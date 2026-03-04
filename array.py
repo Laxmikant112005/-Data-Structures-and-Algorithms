@@ -301,3 +301,12 @@ if result != -1:
 else:
     print(f"Element {key_to_find} not found in the array")
 
+
+# Finding the single number in an array where every element appears twice except for one
+
+arr = [2, 2, 3, 4, 4, 5, 5]
+n = len(arr)
+res = 0
+for i in arr:
+    res = res ^ i
+print(res)
