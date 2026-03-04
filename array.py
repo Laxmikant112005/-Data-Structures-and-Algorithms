@@ -321,3 +321,22 @@ for i in arr:
     else:
         res.remove(i)
 print(res)
+
+# counting the frequency of each element in an array
+
+arr = [ 2, 3, 4, 2, 1, 1, 3, 2]
+res = []
+for i in arr:
+    if i not in res:
+        res.append(i)
+    else:
+        pass
+
+for j in res:
+    count = 0
+    for i in arr:
+        if i == j:
+            count += 1
+        else:
+            pass
+    print(f"{j} -> {count}")
