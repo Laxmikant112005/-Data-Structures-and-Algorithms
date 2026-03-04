@@ -310,3 +310,14 @@ res = 0
 for i in arr:
     res = res ^ i
 print(res)
+
+# finding the single number in an array where every element appears twice except for one using list
+
+arr = [2, 2, 3, 4, 4, 5, 6, 7, 6]
+res = []
+for i in arr:
+    if i not in res:
+        res.append(i)
+    else:
+        res.remove(i)
+print(res)
