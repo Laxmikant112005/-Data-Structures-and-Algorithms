@@ -340,3 +340,16 @@ for j in res:
         else:
             pass
     print(f"{j} -> {count}")
+
+# moving all zeros to the end of an array
+
+arr = [2, 3, 0, 4, 0, 5]
+
+for i in arr:
+    if i == 0:
+        arr.remove(0)
+        arr.append(0)
+    else:
+        pass
+
+print(arr)
