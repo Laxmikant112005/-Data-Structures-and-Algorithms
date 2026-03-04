@@ -45,6 +45,28 @@ for num in nums:
 
 print("Missing number is:", xor_all ^ xor_nums)
 
+#  1. *************************
+
+arr = [1,3,4,5,6]
+res = 0
+n = len(arr)
+for i in range(1, n - 1):
+    res = res ^ i ^ arr[i]
+
+print(res)
+
+# 2. ***************************
+
+arr = [1, 3, 4, 5, 6]
+sum_a = 0
+n = len(arr)
+sum = n*(n + 1)/2
+for i in range(0, n - 1):
+    sum_a = sum_a + arr[i]
+    res = sum - sum_a
+
+print(res)
+
 # removing duplicates from an array
 
 nums = [4, 5, 2, 4, 1, 2, 5, 9]
@@ -278,3 +300,4 @@ if result != -1:
     print(f"Element {key_to_find} found at index {result}")
 else:
     print(f"Element {key_to_find} not found in the array")
+
