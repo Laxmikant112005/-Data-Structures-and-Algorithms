@@ -1,96 +1,191 @@
-📚 DSA Programs in Python
+# Data Structures and Python Practice Programs
 
-This repository contains a collection of Python programs created to practice Data Structures, algorithms, and core Python concepts. The main purpose of this project is to strengthen programming fundamentals and understand how basic data structures and algorithms work internally.
+This repository contains a collection of **Python programs focused on learning Data Structures, algorithms, and Python fundamentals**. The main purpose of this project is to practice core programming concepts and strengthen problem-solving skills using Python.
 
-The project includes implementations of arrays, stacks, queues, recursion, object-oriented programming, and simple data visualization using Python libraries.
+The repository is organized into multiple folders, each covering a different area such as **Python basics, arrays, data structures, and advanced Python concepts**.
 
-📂 Project Structure
+---
 
-The repository is organized into multiple folders based on different topics:
+## Project Structure
 
-🔹 Python Basics
+```
+Dsa_programs/
+│
+├── python_basics_revise.py
+│
+├── advance_py/
+│   ├── graps.py
+│   └── librarys.py
+│
+├── arrays_py/
+│   ├── ana.py
+│   └── fibonassy.py
+│
+└── DSA_py/
+    ├── array.py
+    ├── queue.py
+    └── stack.py
+```
 
-Contains programs for understanding Object-Oriented Programming (OOP) in Python, including class creation, constructors, and methods.
+---
 
-Example:
+# Description of Programs
 
-Creating a Dog class
+## 1. Python Basics
 
-Using object attributes and methods
+**python_basics_revise.py**
 
-🔹 Arrays Programs
+This file demonstrates basic Python concepts using **Object Oriented Programming (OOP)**.
+It defines a `Dog` class with attributes and methods, and shows how to create an object and call its method.
 
-Includes programs that demonstrate basic array operations and algorithmic thinking.
+Concepts used:
 
-Programs include:
+* Classes and objects
+* Constructors (`__init__`)
+* Methods
+* Object creation
 
-Fibonacci sequence generation using loops
+---
 
-Fibonacci sequence generation using recursion
+# 2. Advanced Python
 
-Simple data processing and analytics example
+## graps.py
 
-🔹 Data Structures
-
-This section contains implementations of fundamental Data Structures in Python.
-
-Implemented structures include:
-
-Array operations
-
-Finding largest element
-
-Detecting missing numbers
-
-Stack operations
-
-Counting occurrences of elements
-
-Basic stack traversal
-
-Queue implementation
-
-Insert (enqueue)
-
-Delete (dequeue)
-
-Display queue elements
-
-🔹 Advanced Python
-
-Includes examples of using external Python libraries.
+This program demonstrates how to create a **simple graph using the Matplotlib library**.
 
 Features:
 
-Graph plotting using Matplotlib
+* Uses two arrays of data
+* Plots the data as a line graph
+* Adds axis labels and title
+* Displays the graph using `plt.show()`
 
-Basic data visualization with line graphs
+Concepts used:
 
-⚙️ Technologies Used
+* Data visualization
+* Python libraries
+* Matplotlib plotting
 
-Python 3
+---
 
-Matplotlib
+## librarys.py
 
-Basic Python libraries
+This file is intended for practicing **Python libraries and advanced features**.
+It can be used to explore additional Python modules and functionalities.
 
-Object-Oriented Programming concepts
+---
 
-🎯 Purpose of This Repository
+# 3. Array Based Programs
 
-This project was created to:
+## ana.py
 
-Practice Data Structures and Algorithms
+This program implements a **Retail Analytics system** that processes customer transaction data.
 
-Improve Python programming skills
+Main features:
 
-Develop problem-solving ability
+* Processes transaction records
+* Organizes customer data
+* Uses date processing
+* Builds structured customer profiles
 
-Build a foundation for advanced programming and machine learning
+Concepts used:
 
-👨‍💻 Author
+* Classes
+* Dictionaries
+* Date handling using `datetime`
+* Data processing logic
 
-Laxmikant Sangolagi
-Computer Science Engineering Student
+---
 
-Interested in Python Development, Data Structures, Web Development, and Machine Learning.
+## fibonassy.py
+
+This program generates **Fibonacci numbers using two approaches**.
+
+Methods implemented:
+
+1. **Loop based Fibonacci**
+2. **Recursive Fibonacci**
+
+Concepts used:
+
+* Lists
+* Loops
+* Recursion
+* Mathematical sequence generation
+
+---
+
+# 4. Data Structures Implementation
+
+## array.py
+
+This program demonstrates basic **array operations**.
+
+Operations implemented:
+
+* Finding the **largest number** in an array
+* Finding **missing numbers in a sequence**
+
+Concepts used:
+
+* Arrays
+* Loops
+* Conditional statements
+
+---
+
+## queue.py
+
+This file implements a **Queue Data Structure using Python classes**.
+
+Features:
+
+* Queue insertion operation
+* Queue deletion operation
+* Queue size limit
+* Overflow condition handling
+
+Concepts used:
+
+* Queue (FIFO – First In First Out)
+* Class based implementation
+* Basic data structure operations
+
+---
+
+## stack.py
+
+This program performs operations on a **Stack Data Structure**.
+
+Features:
+
+* Counts the number of occurrences of an element in the stack
+* Takes user input for searching
+
+Concepts used:
+
+* Stack operations
+* Iteration through stack
+* Counting algorithm
+
+---
+
+# Technologies Used
+
+* Python
+* Matplotlib
+* Basic Python libraries
+* Object Oriented Programming
+
+---
+
+# Purpose of This Repository
+
+The main goal of this repository is to:
+
+* Practice **Data Structures and Algorithms**
+* Improve **Python programming skills**
+* Understand **problem solving logic**
+* Implement **basic and advanced Python concepts**
+
+This repository serves as a **learning resource and revision guide for Data Structures and Python programming**.
