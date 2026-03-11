@@ -256,3 +256,174 @@ while True:
 # 6. Exit
 # Enter your choice:  6
 #  6
+
+
+# Circular queue insertion and deletion
+
+class CircularQueue:
+    def __init__(self, size=10):
+        self.queue = [None] * size
+        self.size = size
+        self.front = -1
+        self.rear = -1
+
+    def insert(self, value):
+        if (self.rear + 1) % self.size == self.front:
+            print("Queue is full")
+            return
+
+        if self.front == -1:
+            self.front = 0
+
+        self.rear = (self.rear + 1) % self.size
+        self.queue[self.rear] = value
+        print(f"Item {value} inserted successfully")
+
+    def delete(self):
+        if self.front == -1:
+            print("Queue is empty")
+            return
+
+        item = self.queue[self.front]
+        if self.front == self.rear:
+            self.front = -1
+            self.rear = -1
+        else:
+            self.front = (self.front + 1) % self.size
+        print(f"Item {item} deleted successfully")
+
+    def display(self):
+        if self.front == -1:
+            print("Queue is empty")
+            return
+
+        print("Queue elements:", end=" ")
+        i = self.front
+        while True:
+            print(self.queue[i], end=" ")
+            if i == self.rear:
+                break
+            i = (i + 1) % self.size
+
+obj = CircularQueue()
+while True:
+    print("\n1. Insert")
+    print("2. Delete")
+    print("3. Display")
+    print("4. Exit")
+
+    ch = int(input("Enter your choice: "))
+
+    match ch:
+        case 1:
+            item = int(input("Enter item to insert: "))
+            obj.insert(item)
+        case 2:
+            obj.delete()
+        case 3:
+            obj.display()
+        case 4:
+            break
+
+# output :
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  1
+# Enter item to insert:  20
+# Item 20 inserted successfully
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  1
+# Enter item to insert:  30
+# Item 30 inserted successfully
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  1
+# Enter item to insert:  40
+# Item 40 inserted successfully
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  1
+# Enter item to insert:  50
+# Item 50 inserted successfully
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  1
+# Enter item to insert:  40
+# Item 40 inserted successfully
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  1
+# Enter item to insert:  50
+# Queue is full
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  3
+# Queue elements: 20 30 40 50 40 
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  2
+# Item 20 deleted successfully
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  1
+# Enter item to insert:  30
+# Item 30 inserted successfully
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  3
+# Queue elements: 30 40 50 40 30 
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  2
+# Item 30 deleted successfully
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  2
+# Item 40 deleted successfully
+
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  3
+# Queue elements: 50 40 30 
+# 1. Insert
+# 2. Delete
+# 3. Display
+# 4. Exit
+# Enter your choice:  4
