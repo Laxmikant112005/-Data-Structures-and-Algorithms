@@ -61,134 +61,198 @@ while True:
         case 4:
             break
 
+# improvement of double ended queue using circular queue
 
-# Double ended queue insertion and deletion
-
-class  Doublended_queue :
-    def __init__(self, queue, size = 10, start = -1, rear = -1):
-        self.queue = queue
+class double_ended_queue:
+    def __init__(self, size=10):
+        self.queue = [None] * size
         self.size = size
-        self.rear = rear
-        
+        self.front = -1
+        self.rear = -1
     def insert_front(self, value):
-        if self.rear == self.size - 1:
-            print(" The queue is full")
+        if (self.rear + 1) % self.size == self.front:
+            print("Queue is full")
+            return
+
+        if self.front == -1:
+            self.front = 0
+            self.rear = 0
         else:
-            self.rear += 1
-            self.queue.insert(0, value)
-        return value
-        
+            self.front = (self.front - 1 + self.size) % self.size
+
+        self.queue[self.front] = value
+        print(f"Item {value} inserted at front successfully")
     def insert_rear(self, value):
-        if self.rear == self.size - 1:
-              print("the queue is full")
+        if (self.rear + 1) % self.size == self.front:
+            print("Queue is full")
+            return
+
+        if self.front == -1:
+            self.front = 0
+            self.rear = 0
         else:
-            self.rear += 1
-            self.queue.append(value)
-        return value
-        
+            self.rear = (self.rear + 1) % self.size
+
+        self.queue[self.rear] = value
+        print(f"Item {value} inserted at rear successfully")
     def delete_front(self):
-        if self.rear == -1:
-            print(" The que is empty:")
-            return 0
-        else:
-            self.res = self.queue[0]
-            self.queue.remove(self.queue[0])
-            self.rear -= 1
-            return self.res
+        if self.front == -1:
+            print("Queue is empty")
+            return
 
+        item = self.queue[self.front]
+        if self.front == self.rear:
+            self.front = -1
+            self.rear = -1
+        else:
+            self.front = (self.front + 1) % self.size
+        print(f"Item {item} deleted from front successfully")
     def delete_rear(self):
-        if self.rear == -1:
-            print("The queue is empty: ")
+        if self.front == -1:
+            print("Queue is empty")
+            return
+
+        item = self.queue[self.rear]
+        if self.front == self.rear:
+            self.front = -1
+            self.rear = -1
         else:
-            self.res = self.queue[self.rear]
-            self.queue.pop()
-            self.rear -= 1
-            return self.res
-    def desplay(self):
-        print(self.queue)
+            self.rear = (self.rear - 1 + self.size) % self.size
+        print(f"Item {item} deleted from rear successfully")
+    def display(self):
+        if self.front == -1:
+            print("Queue is empty")
+            return
 
-queue = []
+        print("Queue elements:", end=" ")
+        i = self.front
+        while True:
+            print(self.queue[i], end=" ")
+            if i == self.rear:
+                break
+            i = (i + 1) % self.size
+obj = double_ended_queue()
+while True:
+    print("\n1. Insert Front")
+    print("2. Insert Rear")
+    print("3. Delete Front")
+    print("4. Delete Rear")
+    print("5. Display")
+    print("6. Exit")
 
-obj = Doublended_queue(queue)
+    ch = int(input("Enter your choice: "))
 
-while(True):
-    print("1. insert_front. \t 2. insert_rear \t 3. delete_front \t 4. delete_rear \t 5. desplay \n")
-    ch = int(input(" enter your choice \n"))
-    
     match ch:
         case 1:
-            item = int(input("Enter item to insert : "))
-            res = obj.insert_front(item)
-            print(f" item {res} inserted sccu")
+            item = int(input("Enter item to insert at front: "))
+            obj.insert_front(item)
         case 2:
-            item = int(input("Enter item to insert : "))
-            res = obj.insert_rear(item)
-            print(f" item {res} inserted sccu")
+            item = int(input("Enter item to insert at rear: "))
+            obj.insert_rear(item)
         case 3:
-            res = obj.delete_front()
-            print(f" iten {res} deleted sccu")
+            obj.delete_front()
         case 4:
-            res = obj.delete_rear()
-            print(f" iten {res} deleted sccu")
+            obj.delete_rear()
         case 5:
-            obj.desplay()
+            obj.display()
         case 6:
             break
 
+# output :
 
-# output : 
 
+# 1. Insert Front
+# 2. Insert Rear
+# 3. Delete Front
+# 4. Delete Rear
+# 5. Display
+# 6. Exit
+# Enter your choice:  1
+# Enter item to insert at front:  20
+# Item 20 inserted at front successfully
 
-# 1. insert_front. 	 2. insert_rear 	 3. delete_front 	 4. delete_rear 	 5. desplay 
+# 1. Insert Front
+# 2. Insert Rear
+# 3. Delete Front
+# 4. Delete Rear
+# 5. Display
+# 6. Exit
+# Enter your choice:  2
+# Enter item to insert at rear:  30
+# Item 30 inserted at rear successfully
 
-#  enter your choice 
-#  1
-# Enter item to insert :  50
-#  item 50 inserted sccu
-# 1. insert_front. 	 2. insert_rear 	 3. delete_front 	 4. delete_rear 	 5. desplay 
+# 1. Insert Front
+# 2. Insert Rear
+# 3. Delete Front
+# 4. Delete Rear
+# 5. Display
+# 6. Exit
+# Enter your choice:  2
+# Enter item to insert at rear:  40
+# Item 40 inserted at rear successfully
 
-#  enter your choice 
-#  1
-# Enter item to insert :  30
-#  item 30 inserted sccu
-# 1. insert_front. 	 2. insert_rear 	 3. delete_front 	 4. delete_rear 	 5. desplay 
+# 1. Insert Front
+# 2. Insert Rear
+# 3. Delete Front
+# 4. Delete Rear
+# 5. Display
+# 6. Exit
+# Enter your choice:  2
+# Enter item to insert at rear:  40
+# Item 40 inserted at rear successfully
 
-#  enter your choice 
-#  2
-# Enter item to insert :  70
-#  item 70 inserted sccu
-# 1. insert_front. 	 2. insert_rear 	 3. delete_front 	 4. delete_rear 	 5. desplay 
+# 1. Insert Front
+# 2. Insert Rear
+# 3. Delete Front
+# 4. Delete Rear
+# 5. Display
+# 6. Exit
+# Enter your choice:  2
+# Enter item to insert at rear:  50
+# Queue is full
 
-#  enter your choice 
-#  2
-# Enter item to insert :  90
-#  item 90 inserted sccu
-# 1. insert_front. 	 2. insert_rear 	 3. delete_front 	 4. delete_rear 	 5. desplay 
+# 1. Insert Front
+# 2. Insert Rear
+# 3. Delete Front
+# 4. Delete Rear
+# 5. Display
+# 6. Exit
+# Enter your choice:  5
+# Queue elements: 20 30 40 40 
+            
+# 1. Insert Front
+# 2. Insert Rear
+# 3. Delete Front
+# 4. Delete Rear
+# 5. Display
+# 6. Exit
+# Enter your choice:  3
+# Item 20 deleted from front successfully
 
-#  enter your choice 
-#  5
-# [30, 50, 70, 90]
-# 1. insert_front. 	 2. insert_rear 	 3. delete_front 	 4. delete_rear 	 5. desplay 
+# 1. Insert Front
+# 2. Insert Rear
+# 3. Delete Front
+# 4. Delete Rear
+# 5. Display
+# 6. Exit
+# Enter your choice:  2
+# Enter item to insert at rear:  50
+# Item 50 inserted at rear successfully
 
-#  enter your choice 
-#  3
-#  iten 30 deleted sccu
-# 1. insert_front. 	 2. insert_rear 	 3. delete_front 	 4. delete_rear 	 5. desplay 
-
-#  enter your choice 
-#  5
-# [50, 70, 90]
-# 1. insert_front. 	 2. insert_rear 	 3. delete_front 	 4. delete_rear 	 5. desplay 
-
-#  enter your choice 
-#  4
-#  iten 90 deleted sccu
-# 1. insert_front. 	 2. insert_rear 	 3. delete_front 	 4. delete_rear 	 5. desplay 
-
-#  enter your choice 
-#  5
-# [50, 70]
-# 1. insert_front. 	 2. insert_rear 	 3. delete_front 	 4. delete_rear 	 5. desplay 
-
-#  enter your choice 
+# 1. Insert Front
+# 2. Insert Rear
+# 3. Delete Front
+# 4. Delete Rear
+# 5. Display
+# 6. Exit
+# Enter your choice:  5
+# Queue elements: 30 40 40 50 
+            
+# 1. Insert Front
+# 2. Insert Rear
+# 3. Delete Front
+# 4. Delete Rear
+# 5. Display
+# 6. Exit
+# Enter your choice:  6
 #  6
