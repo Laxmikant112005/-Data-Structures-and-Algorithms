@@ -9,6 +9,23 @@ for i in num:
         continue
 print(n)
 
+
+# Finding the second largest number in an array
+
+arr = [57, 57, -57, 57]
+max1 = -100
+le = len(arr)
+max2 = -100
+for i in range(le):
+    if max1 < arr[i]:
+        max2 = max1
+        max1 = arr[i]
+    elif arr[i] > max2 and arr[i] != max1:
+        max2 = arr[i]
+        
+print(max2, max1)
+
+
 # Finding the smallest number in an array
 
 nums = [1, 2, 4, 5, 6, 7, 8, 9, 10]
@@ -28,6 +45,7 @@ for i in range(size):
     else:
         j += 1
         print(f"Number {nums[i]} is present with gap {gap}")
+        
 
 # Finding the missing number in an array
 
