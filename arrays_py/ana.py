@@ -66,6 +66,36 @@ if __name__ == "__main__":
         {'customer_id': 'C104', 'amount': 10,  'date': '2026-02-25'},
     ]
 
+
+# Given a list of student names and their scores, find the names of students with the second lowest score and print them in alphabetical order.
+
+students = []
+
+n = int(input())
+
+for i in range(n):
+    name = input()
+    score = float(input())
+    students.append([name, score])
+
+# get all scores
+scores = []
+for s in students:
+    scores.append(s[1])
+
+# find second lowest score
+second_lowest = sorted(set(scores))[1]
+
+# get names with second lowest score
+names = []
+for s in students:
+    if s[1] == second_lowest:
+        names.append(s[0])
+
+# print names alphabetically
+for name in sorted(names):
+    print(name)
+    
     # Initialize with "Today's Date" (matching the 2026 context)
     engine = RetailAnalytics(current_date="2026-02-25")
     engine.ingest_data(raw_data)
