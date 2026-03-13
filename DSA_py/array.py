@@ -46,6 +46,22 @@ for i in range(size):
         j += 1
         print(f"Number {nums[i]} is present with gap {gap}")
         
+# Finding the second smallest number in an array
+
+arr = [10, 20, 30, 34, 40, 10, 20]
+min1 = min(arr)
+
+arr = [x for x in arr if x != min1]
+
+print("First minimum:", min1)
+print("Array after removing first minimum:", arr)
+min2 = min(arr)
+
+arr = [x for x in arr if x != min2]
+
+print("Second minimum:", min2)
+print("Array after removing second minimum:", arr)
+
 
 # Finding the missing number in an array
 
