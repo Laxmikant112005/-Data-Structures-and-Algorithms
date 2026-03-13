@@ -38,3 +38,11 @@ if res == 0:
 else :
     print(f"Not strong {res} instruction is missing")
 
+# coversion os intiger array to string
+
+def array_to_string(arr):
+    return ''.join(map(str, arr))
+arr = [1, 2, 3, 4, 5]
+result = array_to_string(arr)
+print(result)  # Output: "12345"
+
