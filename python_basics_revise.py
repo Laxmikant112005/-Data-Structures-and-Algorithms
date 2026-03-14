@@ -85,6 +85,31 @@ print(sum1)
 print(sum2)
 
 
+# Finding the ratio of positive, negative and zero elements in an array
+
+arr = [-4, 3, -9, 0, 4, 1]
+def plusMinus(arr):
+    # Write your code here
+    c1 = c2 = c3 = 0
+    n = len(arr)
+    for i in arr:
+        if i > 0:
+            c1 += 1
+        elif i < 0:
+            c2 += 1
+        else:
+            c3 += 1
+    print(c1, c2, c3, n)
+    c1 = c1 / n
+    c2 = c2 / n
+    c3 = c3 / n
+    print(f"{c1:.6f}")
+    print(f"{c1:.6f}")
+    print(f"{c1:.6f}")
+
+plusMinus(arr)
+
+
 #......................
 # patterns problem 
 #......................
