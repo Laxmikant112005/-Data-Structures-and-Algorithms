@@ -64,6 +64,27 @@ for i in range(n - 2):
 
 print(ar)
 
+
+# Finding the sum of the primary and secondary diagonals of a square matrix
+
+arr = [[1, 2, 4],
+       [4, 5, 6],
+       [7, 8, 9]]
+n = len(arr)
+sum1 = sum2 = 0
+for i in range(n):
+    for j in range(n):
+        if i == j:
+            sum1 += arr[i][j]
+
+for i in range(n):
+        for j in range(n - 1, -1, -1):
+            if n - i - 1 == j:
+                sum2 += arr[i][j]
+print(sum1)
+print(sum2)
+
+
 #......................
 # patterns problem 
 #......................
