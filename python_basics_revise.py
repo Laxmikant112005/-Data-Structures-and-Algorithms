@@ -5,11 +5,21 @@ class Dog:
         self.age = age
     def bark(self):
         print(f"{self.name} says woof!")
-# Create an object
 d1 = Dog("Buddy", 3)
-# Call the bark method
 d1.bark()
 
+# dictionary basic
+
+data = {
+    "name": ["laxmi", "mallikarjun", "manju"],
+    "age": [10, 20, 30],
+    "sall": [1000000, 200000, 300000]
+}
+
+n = len(data["name"])
+
+for i in range(n):
+    print(data["name"][i])
 
 #......................
 # patterns problem 
