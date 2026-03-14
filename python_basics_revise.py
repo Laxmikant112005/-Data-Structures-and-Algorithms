@@ -37,6 +37,33 @@ average = sum(marks) / len(marks)
 
 print(f"{average:.2f}")
 
+
+# Finding the sum of all elements in an array
+# in pattern of hourglass
+# 1 2 3
+#   4
+# 5 6 7
+arr = [[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9],
+       [10, 11, 12],
+       [13, 14, 15]]
+
+ar = []
+n = len(arr)
+m = len(arr[0])
+
+for i in range(n - 2):
+    for j in range(m - 2):
+        total = (
+            arr[i][j] + arr[i][j+1] + arr[i][j+2] +
+            arr[i+1][j+1] +
+            arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2]
+        )
+        ar.append(total)
+
+print(ar)
+
 #......................
 # patterns problem 
 #......................
