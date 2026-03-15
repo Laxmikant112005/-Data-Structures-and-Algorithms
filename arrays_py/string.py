@@ -46,3 +46,22 @@ arr = [1, 2, 3, 4, 5]
 result = array_to_string(arr)
 print(result)  # Output: "12345"
 
+# time convertion 
+
+def timeConversion(s):
+    hour = int(s[0:2])
+    period = s[8:]          # AM or PM
+    rest = s[2:8]           # :mm:ss
+
+    if period == "PM" and hour != 12:
+        hour += 12
+    elif period == "AM" and hour == 12:
+        hour = 0
+
+    return f"{hour:02d}{rest}"
+
+
+s = input()
+
+result = timeConversion(s)
+print(result)
