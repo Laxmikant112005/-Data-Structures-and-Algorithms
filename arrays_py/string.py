@@ -1,5 +1,15 @@
-# camelcase problem
+# string to array and array to string coversion
 
+arr = ['H', 'e', 'l', 'l', 'o', 1, 2, 3]
+string = ''.join(map(str, arr))
+print("String:", string)
+
+new_arr = list(string)
+print("Array:", new_arr)
+
+
+
+# camelcase problem
 
 def camelcase(s):
     count = 1
