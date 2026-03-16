@@ -138,6 +138,24 @@ t = 11
 countApplesAndOranges(s, t, a, b, app, org)
 
 
+# Implement grading students rounding logic 
+
+def gradingStudents(grades):
+    n = len(grades)
+    for i in range(n):
+        if grades[i] >= 38:
+            r = grades[i] % 5
+            if r >= 3:
+                grades[i] = grades[i] - r + 5
+            else:
+                pass
+        else:
+            pass
+            
+    return grades
+    
+
+
 #......................
 # patterns problem 
 #......................
