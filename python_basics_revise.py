@@ -109,6 +109,34 @@ def plusMinus(arr):
 
 plusMinus(arr)
 
+# Fix apple and orange position calculation
+
+
+def countApplesAndOranges(s, t, a, b, apples, oranges):
+    # Write your code here
+    m = len(apples)
+    n = len(oranges)
+    count_a = count_o = 0
+    for i in range(m):
+        apples[i] = apples[i] + (b)
+        if apples[i] >= s and apples[i] <= t:
+            count_a = count_a + 1
+    
+    for i in range(n):
+        oranges[i] = oranges[i] + (a)
+        if oranges[i] >= s and oranges[i] <= t:
+            count_o = count_o + 1
+    print(count_o)
+    print(count_a)
+
+app = [5, -6]
+org = [-2, 2, 1]
+a = 15
+b = 5
+s = 7
+t = 11
+countApplesAndOranges(s, t, a, b, app, org)
+
 
 #......................
 # patterns problem 
