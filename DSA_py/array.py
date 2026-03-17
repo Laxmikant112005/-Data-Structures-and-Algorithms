@@ -266,6 +266,22 @@ for i in range(n):
 
 print(a)
 
+# Perform number manipulation by splitting and recombining digits
+
+m = 1234
+n = 77
+
+F = m //100
+S = m % 100
+
+res1 = F * 10000 + n * 100 + S
+res2 = F * 100 + n
+res3 = n * 100 + S
+print(res1)
+print(res2)
+print(res3)
+
+
 
 # sorting concepts **************** 
 
