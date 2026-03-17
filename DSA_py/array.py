@@ -250,6 +250,22 @@ def find_missing_number(nums):
 # Test
 print(f"Missing Number: {find_missing_number([3, 0, 1])}") # Output: 2
 
+#Reorder array to move even numbers before odd numbers using bubble-like swaps
+
+
+a = [7, 6, 0, 3, 0, 4]
+n = len(a)
+
+for i in range(n):
+    for j in range(n - 1):
+        if a[j] % 2 != 0 and a[j+1] % 2 == 0:
+            temp = a[j]
+            a[j] = a[j+1]
+            a[j+1] = temp
+            print(a)
+
+print(a)
+
 
 # sorting concepts **************** 
 
