@@ -97,3 +97,22 @@ print("\n ------------------------\n ")
 print(df.loc["student 1"])
 print("\n ------------------------\n ")
 print(df.loc[["student 1", "student 3"]])
+
+# Implement DataFrame filtering with boolean indexing and column selection
+
+import pandas as pd
+
+data = {
+    "Name": ["A", "B", "C"],
+    "Marks": [20, 50, 70]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+
+new_df = df[df["Marks"] > 40]
+print(new_df)
+
+new1_df = new_df[new_df["Marks"] > 50]
+print(new1_df["Name"])
