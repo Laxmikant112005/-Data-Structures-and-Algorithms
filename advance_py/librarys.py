@@ -153,3 +153,19 @@ print(df)
 
 print("\nUpdated DataFrame (Marks increased by 5):")
 print(df)
+
+# Refactor DataFrame sorting with index normalization and improved output clarity
+
+import pandas as pd
+
+data = {
+    "Name": ["A", "B", "C"],
+    "Marks": [80, 50, 70]
+}
+
+df = pd.DataFrame(data)
+
+sorted_df = df.sort_values(by="Marks", ascending=False).reset_index(drop=True)
+
+print("Sorted DataFrame (by Marks - descending):")
+print(sorted_df)
