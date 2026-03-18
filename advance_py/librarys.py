@@ -128,13 +128,28 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Display original DataFrame
 print("Original DataFrame:")
 print(df)
 
-# Increase marks by 5
 df["Marks"] += 5
 
-# Display updated DataFrame
+# Handle missing values in DataFrame using mean imputation and improve code clarity
+
+import pandas as pd
+
+data = {
+    "Name": ["A", "B", "C"],
+    "Marks": [80, None, 70]
+}
+
+df = pd.DataFrame(data)
+
+avg_marks = df["Marks"].mean()
+
+df["Marks"] = df["Marks"].fillna(avg_marks)
+
+print("Updated DataFrame (Missing values filled with average):")
+print(df)
+
 print("\nUpdated DataFrame (Marks increased by 5):")
 print(df)
