@@ -116,3 +116,25 @@ print(new_df)
 
 new1_df = new_df[new_df["Marks"] > 50]
 print(new1_df["Name"])
+
+# Refactor DataFrame manipulation to use in-place column update and clearer output formatting
+
+import pandas as pd
+
+data = {
+    "Name": ["A", "B", "C"],
+    "Marks": [80, 50, 70]
+}
+
+df = pd.DataFrame(data)
+
+# Display original DataFrame
+print("Original DataFrame:")
+print(df)
+
+# Increase marks by 5
+df["Marks"] += 5
+
+# Display updated DataFrame
+print("\nUpdated DataFrame (Marks increased by 5):")
+print(df)
