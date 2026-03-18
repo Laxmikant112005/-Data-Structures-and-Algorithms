@@ -79,3 +79,21 @@ print(f"Normalized data : \n{s1.astype(int)}")
 # i    0
 # j    0
 # dtype: int32
+
+# Create pandas DataFrame and demonstrate row selection using loc
+
+import pandas as pd
+
+data = {
+    "Name" : ["laxmi", "kanta", "basu", "manju"],
+    "Marks" : [50, 40, 60, 90],
+    "Section" : ["A", "B", "A", "C"]
+}
+
+df = pd.DataFrame(data, index = ["student 1","student 2","student 3","student 4"] )
+
+print(df)
+print("\n ------------------------\n ")
+print(df.loc["student 1"])
+print("\n ------------------------\n ")
+print(df.loc[["student 1", "student 3"]])
