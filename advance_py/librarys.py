@@ -169,3 +169,38 @@ sorted_df = df.sort_values(by="Marks", ascending=False).reset_index(drop=True)
 
 print("Sorted DataFrame (by Marks - descending):")
 print(sorted_df)
+
+
+# Handled missing values and performed data filtering in Pandas DataFrame
+
+
+import pandas as pd
+import numpy as np
+
+data = {
+    "Name": ["Amit", "Sara", "John", "Priya", "Raj", "Anu"],
+    "Age": [23, np.nan, 22, 24, np.nan, 21],
+    "Marks": [85, 90, np.nan, 88, 76, np.nan],
+    "City": ["Delhi", "Mumbai", "Delhi", None, "Mumbai", "Delhi"]
+}
+
+df = pd.DataFrame(data)
+print(df)
+print("\n ------Iden of Null values-------\n")
+null = df.isnull()
+print(null)
+new_df = df[df["Age"] >20]
+print("\n -------Filtering the data-------\n")
+print(new_df)
+print("\n -------Null in Age-------\n")
+null = df[df["Age"].isnull()].index
+print(df.loc[null])
+print(null)
+print("\n -------Age/Marks updating-------\n")
+df["Age"] = df["Age"].fillna(df["Age"].mean())
+df["Marks"] = df["Marks"].fillna(df["Marks"].median())
+df["City"] = df["City"].fillna("Unknown")
+print(df)
+print("\n -------accesing the perticular data -------\n")
+temp = df.loc[0]
+print(temp)
