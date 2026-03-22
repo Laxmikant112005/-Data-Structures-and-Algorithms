@@ -70,3 +70,29 @@ if __name__ == "__main__":
     engine = RetailAnalytics(current_date="2026-02-25")
     engine.ingest_data(raw_data)
     engine.get_report()
+
+
+# This program generates all possible combinations of three numbers (i, j, k) where each number can be 0 or 1. It then filters out the combinations where the sum of the three numbers is equal to a specified value n (in this case, n=2). The resulting combinations are stored in arr2 and printed at the end.
+
+x = 1
+y = 1
+z = 1
+n = 2
+arr = []
+arr2 = []
+for i in range(x + 1):
+    for j in range(y + 1):
+        for k in range(z + 1):
+            arr.append([i, j, k])
+print(arr)
+sum = 0
+lent = len(arr)
+print(lent)
+for i in range(lent):
+    s = len(arr[i])
+    for j in range(s):
+        sum += arr[i][j]
+    if sum != n:
+        arr2.append(arr[i])
+    sum = 0
+print(arr2)

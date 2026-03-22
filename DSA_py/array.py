@@ -388,3 +388,44 @@ if result != -1:
     print(f"Element {key_to_find} found at index {result}")
 else:
     print(f"Element {key_to_find} not found in the array")
+
+# Finding the second largest number in an array
+
+arr = [57, 57, -57, 57]
+max1 = -100
+le = len(arr)
+max2 = -100
+for i in range(le):
+    if max1 < arr[i]:
+        max2 = max1
+        max1 = arr[i]
+    elif arr[i] > max2 and arr[i] != max1:
+        max2 = arr[i]
+        
+print(max2, max1)
+
+# Finding the second smallest number in an array
+
+arr = [10, 20, 30, 34, 40, 10, 20]
+
+# find smallest number
+min1 = min(arr)
+
+# remove all occurrences of the smallest
+arr = [x for x in arr if x != min1]
+
+print("First minimum:", min1)
+print("Array after removing first minimum:", arr)
+
+# find second smallest
+min2 = min(arr)
+
+# remove all occurrences of second smallest
+arr = [x for x in arr if x != min2]
+
+print("Second minimum:", min2)
+print("Array after removing second minimum:", arr)
+
+
+
+# seperate array eliments by even and odd numbers using same array 
