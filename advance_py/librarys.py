@@ -52,7 +52,7 @@ import pandas as pd
 import numpy as np
 # random data creation 
 data = np.random.randint(0, 50,10)
-print(f"Random data : \n {rand_data}")
+print(f"Random data : \n {data}")
 ind = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
 # creating seres 
 s = pd.Series(data, index = ind)
@@ -205,53 +205,53 @@ print("\n -------accesing the perticular data -------\n")
 temp = df.loc[0]
 print(temp)
 # out put :
-    Name   Age  Marks    City
-0   Amit  23.0   85.0   Delhi
-1   Sara   NaN   90.0  Mumbai
-2   John  22.0    NaN   Delhi
-3  Priya  24.0   88.0    None
-4    Raj   NaN   76.0  Mumbai
-5    Anu  21.0    NaN   Delhi
+#     Name   Age  Marks    City
+# 0   Amit  23.0   85.0   Delhi
+# 1   Sara   NaN   90.0  Mumbai
+# 2   John  22.0    NaN   Delhi
+# 3  Priya  24.0   88.0    None
+# 4    Raj   NaN   76.0  Mumbai
+# 5    Anu  21.0    NaN   Delhi
 
- ------Iden of Null values-------
+#  ------Iden of Null values-------
 
-    Name    Age  Marks   City
-0  False  False  False  False
-1  False   True  False  False
-2  False  False   True  False
-3  False  False  False   True
-4  False   True  False  False
-5  False  False   True  False
+#     Name    Age  Marks   City
+# 0  False  False  False  False
+# 1  False   True  False  False
+# 2  False  False   True  False
+# 3  False  False  False   True
+# 4  False   True  False  False
+# 5  False  False   True  False
 
- -------Filtering the data-------
+#  -------Filtering the data-------
 
-    Name   Age  Marks   City
-0   Amit  23.0   85.0  Delhi
-2   John  22.0    NaN  Delhi
-3  Priya  24.0   88.0   None
-5    Anu  21.0    NaN  Delhi
+#     Name   Age  Marks   City
+# 0   Amit  23.0   85.0  Delhi
+# 2   John  22.0    NaN  Delhi
+# 3  Priya  24.0   88.0   None
+# 5    Anu  21.0    NaN  Delhi
 
- -------Null in Age-------
+#  -------Null in Age-------
 
-   Name  Age  Marks    City
-1  Sara  NaN   90.0  Mumbai
-4   Raj  NaN   76.0  Mumbai
-Index([1, 4], dtype='int64')
+#    Name  Age  Marks    City
+# 1  Sara  NaN   90.0  Mumbai
+# 4   Raj  NaN   76.0  Mumbai
+# Index([1, 4], dtype='int64')
 
- -------Age/Marks updating-------
+#  -------Age/Marks updating-------
 
-    Name   Age  Marks     City
-0   Amit  23.0   85.0    Delhi
-1   Sara  22.5   90.0   Mumbai
-2   John  22.0   86.5    Delhi
-3  Priya  24.0   88.0  Unknown
-4    Raj  22.5   76.0   Mumbai
-5    Anu  21.0   86.5    Delhi
+#     Name   Age  Marks     City
+# 0   Amit  23.0   85.0    Delhi
+# 1   Sara  22.5   90.0   Mumbai
+# 2   John  22.0   86.5    Delhi
+# 3  Priya  24.0   88.0  Unknown
+# 4    Raj  22.5   76.0   Mumbai
+# 5    Anu  21.0   86.5    Delhi
 
- -------accesing the perticular data -------
+#  -------accesing the perticular data -------
 
-Name      Amit
-Age       23.0
-Marks     85.0
-City     Delhi
-Name: 0, dtype: object
+# Name      Amit
+# Age       23.0
+# Marks     85.0
+# City     Delhi
+# Name: 0, dtype: object
