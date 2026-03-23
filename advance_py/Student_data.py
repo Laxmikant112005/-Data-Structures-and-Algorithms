@@ -1,4 +1,4 @@
-# pip install pandas openpyxl
+pip install pandas openpyxl
 
 # Importing libraries 
 import pandas as pd
@@ -35,6 +35,7 @@ for mark in df["Marks"]:
 df["Passed"] = row
 print(df)
 
+
 # 2nd data generating using main dataset 
 row = []
 min_sub = df["Sub_no"].min()
@@ -54,9 +55,34 @@ print(df)
 
 
 # Concating Two defferent dataFrame 
-new_df = pd.concat([df, df1], axis = 1)
-print(new_df)
+df2 = pd.concat([df, df1], axis = 1)
+print(df2)
 
+# add the Grade colomn according to the marks :
+row = []
+for i in df2["Marks"]:
+    if i >= 95:
+        res = "A+"
+    elif i >= 90 and i<95:
+        res = ("A")
+    elif i >=75 and i < 90:
+        res = ("B")
+    elif i >= 55 and i < 75:
+        res = ("C")
+    elif i>=35 and i<55:
+        res = ("D")
+    else:
+        res = ("F")
+    data = {
+        "Grade": res
+    }
+    row.append(data)
+
+df3 = pd.DataFrame(row)
+
+df4 = pd.concat([df2, df3], axis = 1)
 
 # Converting dataFrame into Excel 
-new_df.to_excel("Student_data_set.xlsx", index = False)
+df4.to_excel("Student_data_set.xlsx", index = False)
+
+
