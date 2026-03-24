@@ -1,88 +1,66 @@
-pip install pandas openpyxl
-
-# Importing libraries 
 import pandas as pd
 import numpy as np
 from faker import Faker
 import random
 
+# -----------------------
+# Data Generation
+# -----------------------
 
-# The Main data generation 
-fack = Faker()
-row = []
-for i in range(100):
-    data = {
-        "Name" : fack.name(),
-        "Age" : random.randint(20, 30),
-        "Marks" : random.randint(0, 100),
-        "Gender" : random.choice(["Mail", "Femail"]),
-        "Sub_no" : random.randint(10, 24)
-    }
-    row.append(data)
-df = pd.DataFrame(row)  
-print(df)
+fake = Faker()
 
+data = [{
+    "User_ID": fake.bothify(text="ID-CS###"),
+    "Name": fake.name(),
+    "Email": fake.email(),
+    "Age": random.randint(20, 30),
+    "Marks": random.randint(0, 100),
+    "Gender": random.choice(["Male", "Female"]),
+    "Sub_no": random.randint(10, 24)
+} for _ in range(100)]
 
-# Add a NEW colomn [Passed / Fail ]
-row = []
+df = pd.DataFrame(data)
 
-for mark in df["Marks"]:
-    if mark < 35:
-        row.append("Fail")
-    else:
-        row.append("Pass")
+# -----------------------
+# Feature Engineering
+# -----------------------
 
-df["Passed"] = row
-print(df)
+# Pass/Fail
+df["Passed"] = np.where(df["Marks"] < 35, "Fail", "Pass")
 
-
-# 2nd data generating using main dataset 
-row = []
+# Backlogs & Fees
 min_sub = df["Sub_no"].min()
-for i in df["Sub_no"]:
-    res = i - min_sub
-    pay = res * 250
-    total = pay + 100000
-    data = {
-        "Back_sub" : res,
-        "Pay" : pay,
-        "Clg_fee" : 100000,
-        "Total" : total
-    }
-    row.append(data)
-df1 = pd.DataFrame(row)
-print(df)
+df["Back_sub"] = df["Sub_no"] - min_sub
+df["Pay"] = df["Back_sub"] * 250
+df["Clg_fee"] = 100000
+df["Total"] = df["Pay"] + df["Clg_fee"]
 
+# Grade
+conditions = [
+    df["Marks"] >= 95,
+    df["Marks"] >= 90,
+    df["Marks"] >= 75,
+    df["Marks"] >= 55,
+    df["Marks"] >= 35
+]
 
-# Concating Two defferent dataFrame 
-df2 = pd.concat([df, df1], axis = 1)
-print(df2)
+grades = ["A+", "A", "B", "C", "D"]
 
-# add the Grade colomn according to the marks :
-row = []
-for i in df2["Marks"]:
-    if i >= 95:
-        res = "A+"
-    elif i >= 90 and i<95:
-        res = ("A")
-    elif i >=75 and i < 90:
-        res = ("B")
-    elif i >= 55 and i < 75:
-        res = ("C")
-    elif i>=35 and i<55:
-        res = ("D")
-    else:
-        res = ("F")
-    data = {
-        "Grade": res
-    }
-    row.append(data)
+df["Grade"] = np.select(conditions, grades, default="F")
 
-df3 = pd.DataFrame(row)
+# -----------------------
+# Data Cleaning
+# -----------------------
 
-df4 = pd.concat([df2, df3], axis = 1)
+print("Null values:\n", df.isnull().sum())
 
-# Converting dataFrame into Excel 
-df4.to_excel("Student_data_set.xlsx", index = False)
+num_cols = df.select_dtypes(include=[np.number]).columns
+df[num_cols] = df[num_cols].fillna(df[num_cols].mean())
 
+# -----------------------
+# Export
+# -----------------------
 
+df.to_excel("Student_data_set.xlsx", index=False)
+
+print(df.head())
