@@ -84,3 +84,25 @@ df4 = pd.concat([df2, df3], axis = 1)
 
 # Converting dataFrame into Excel 
 df4.to_excel("Student_data_set.xlsx", index = False)
+
+
+# Handling Categorical data [(male, female), (Pass, Fail)]:
+
+df4["Gender"] = df4["Gender"].replace({
+    "Mail": "Male",
+    "Femail": "Female"
+})
+
+df4["Gender"] = df4["Gender"].map({
+    "Male":1,
+    "Female":0
+})
+
+df4["Passed"] = df4["Passed"].map({
+    "Pass":1,
+    "Fail":0
+})
+
+# Categoricali handeled dataset:
+print(df4["Gender"].head())
+print(df4["Passed"].head())
