@@ -1,108 +1,139 @@
-pip install pandas openpyxl
+# pip install pandas openpyxl faker
 
-# Importing libraries 
+# Importing libraries
+
 import pandas as pd
 import numpy as np
 from faker import Faker
 import random
 
+# Step 1: Generate Main Dataset
 
-# The Main data generation 
-fack = Faker()
-row = []
+fake = Faker()
+rows = []
+
 for i in range(100):
     data = {
-        "Name" : fack.name(),
-        "Age" : random.randint(20, 30),
-        "Marks" : random.randint(0, 100),
-        "Gender" : random.choice(["Mail", "Femail"]),
-        "Sub_no" : random.randint(10, 24)
+        "User_ID": fake.bothify(text="ID-CS###"),   # Random ID
+        "Name": fake.name(),                        # Random Name
+        "Email": fake.email(),                      # Random Email
+        "Age": random.randint(20, 30),              # Age between 20–30
+        "Marks": random.randint(0, 100),            # Marks between 0–100
+        "Gender": random.choice(["Male", "Female"]),
+        "Sub_no": random.randint(10, 24)            # Number of subjects
     }
-    row.append(data)
-df = pd.DataFrame(row)  
-print(df)
+    rows.append(data)
 
+df = pd.DataFrame(rows)
+print("Main Dataset:\n", df.head())
 
-# Add a NEW colomn [Passed / Fail ]
-row = []
+# Step 2: Create Pass/Fail Column
 
-for mark in df["Marks"]:
-    if mark < 35:
-        row.append("Fail")
-    else:
-        row.append("Pass")
+df["Passed"] = df["Marks"].apply(lambda x: "Pass" if x >= 35 else "Fail")
+print("\nWith Pass/Fail:\n", df.head())
 
-df["Passed"] = row
-print(df)
+# Step 3: Generate Fee Dataset
 
+rows = []
+min_sub = df["Sub_no"].min()   # Minimum subjects
 
-# 2nd data generating using main dataset 
-row = []
-min_sub = df["Sub_no"].min()
 for i in df["Sub_no"]:
-    res = i - min_sub
-    pay = res * 250
-    total = pay + 100000
+    back_sub = i - min_sub          # Backlog subjects
+    pay = back_sub * 250            # Fee per backlog
+    total = pay + 100000            # Total fee
+
     data = {
-        "Back_sub" : res,
-        "Pay" : pay,
-        "Clg_fee" : 100000,
-        "Total" : total
+        "Back_sub": back_sub,
+        "Pay": pay,
+        "Clg_fee": 100000,          # Constant fee
+        "Total": total
     }
-    row.append(data)
-df1 = pd.DataFrame(row)
-print(df)
+    rows.append(data)
+
+df1 = pd.DataFrame(rows)
+print("\nFee Dataset:\n", df1.head())
 
 
-# Concating Two defferent dataFrame 
-df2 = pd.concat([df, df1], axis = 1)
-print(df2)
+# Step 4: Merge both datasets
 
-# add the Grade colomn according to the marks :
-row = []
-for i in df2["Marks"]:
-    if i >= 95:
-        res = "A+"
-    elif i >= 90 and i<95:
-        res = ("A")
-    elif i >=75 and i < 90:
-        res = ("B")
-    elif i >= 55 and i < 75:
-        res = ("C")
-    elif i>=35 and i<55:
-        res = ("D")
+df2 = pd.concat([df, df1], axis=1)
+print("\nMerged Dataset:\n", df2.head())
+
+
+# Step 5: Add Grade Column
+
+def assign_grade(mark):
+    if mark >= 95:
+        return "A+"
+    elif mark >= 90:
+        return "A"
+    elif mark >= 75:
+        return "B"
+    elif mark >= 55:
+        return "C"
+    elif mark >= 35:
+        return "D"
     else:
-        res = ("F")
-    data = {
-        "Grade": res
-    }
-    row.append(data)
+        return "F"
 
-df3 = pd.DataFrame(row)
-
-df4 = pd.concat([df2, df3], axis = 1)
-
-# Converting dataFrame into Excel 
-df4.to_excel("Student_data_set.xlsx", index = False)
+df2["Grade"] = df2["Marks"].apply(assign_grade)
+print("\nWith Grades:\n", df2.head())
 
 
-# Handling Categorical data [(male, female), (Pass, Fail)]:
+# Step 6: Handle Missing Values
 
-df4["Gender"] = df4["Gender"].replace({
-    "Mail": "Male",
-    "Femail": "Female"
+print("\nNull Values:\n", df2.isnull().sum())
+
+# Fill numeric columns with mean (if any nulls exist)
+num_cols = df2.select_dtypes(include=[np.number]).columns
+df2[num_cols] = df2[num_cols].fillna(df2[num_cols].mean())
+
+
+
+# Step 7: Encode Categorical Data
+
+
+# Gender encoding
+df2["Gender"] = df2["Gender"].map({
+    "Male": 1,
+    "Female": 0
 })
 
-df4["Gender"] = df4["Gender"].map({
-    "Male":1,
-    "Female":0
+# Pass/Fail encoding
+df2["Passed"] = df2["Passed"].map({
+    "Pass": 1,
+    "Fail": 0
 })
 
-df4["Passed"] = df4["Passed"].map({
-    "Pass":1,
-    "Fail":0
+
+
+# Step 8: Drop useless columns
+
+# Clg_fee → constant
+# Total → redundant (Pay + constant)
+
+df2.drop(columns=["Clg_fee", "Total"], inplace=True)
+
+
+
+# Step 9: Normalize numeric data
+
+col = ["Age", "Marks", "Sub_no", "Back_sub", "Pay"]
+
+df2[col] = (df2[col] - df2[col].min()) / (df2[col].max() - df2[col].min())
+print("\nNormalized Data:\n", df2[col].head())
+
+
+
+# Step 10: Encode Grade (Ordinal)
+
+df2["Grade"] = df2["Grade"].map({
+    "A+": 5,
+    "A": 4,
+    "B": 3,
+    "C": 2,
+    "D": 1,
+    "F": 0
 })
 
-# Categoricali handeled dataset:
-print(df4["Gender"].head())
-print(df4["Passed"].head())
+print("\nFinal Dataset:\n", df2.head())
