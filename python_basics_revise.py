@@ -208,3 +208,45 @@ for i in range(n):
 # * * 
 # * * * 
 # * * * * 
+
+l1 = [1, 2, 3, 4, 5]
+l2 = [6, 7, 8, 9, 10]
+
+l3 = []
+res = 0
+
+for i in range(len(l1)):
+    res = res + l1[i] + l2[i]
+    print(res)
+    r1 = res % 10
+    print(r1)
+    l3.append(r1)
+    res = res // 10
+    print(res)
+    print("----------------------------")
+print(l3)
+
+# 2nd method
+
+class Node:
+    def add(self, l1, l2):
+        l3 = []
+        res = 0
+
+        for i in range(len(l1)):
+            res = res + l1[i] + l2[i]
+            r1 = res % 10
+            l3.append(r1)
+            res = res // 10
+        return l3
+    
+n = Node()
+l1 = [1, 2, 3, 4, 5]
+l2 = [6, 7, 8, 9, 10]
+print(n.add(l1, l2))
+
+
+
+
+
+        
